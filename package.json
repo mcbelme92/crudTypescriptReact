@@ -1,0 +1,32 @@
+{
+  "name": "crudtsvite",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@types/bootstrap": "^5.2.6",
+    "@types/jest": "^29.5.0",
+    "@types/node": "^18.15.11",
+    "@types/react-bootstrap": "^0.32.32",
+    "@types/react-router-dom": "^5.3.3",
+    "bootstrap": "^5.2.3",
+    "react": "^18.2.0",
+    "react-bootstrap": "^2.7.2",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.10.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.33",
+    "@types/react-dom": "^18.0.11",
+    "@types/sass": "^1.45.0",
+    "@vitejs/plugin-react": "^3.1.0",
+    "sass": "^1.61.0",
+    "typescript": "^5.0.3",
+    "vite": "^4.2.0"
+  }
+}

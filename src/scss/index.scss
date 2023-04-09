@@ -1,0 +1,22 @@
+/* //SE IMPORTARA TODOS LSO SCSS ED LSO COMPONENTES AQUI
+//ya que aqui es donde next los necesita para que funcionen
+@import "./colors.scss";
+//Layouts
+@import "../layouts/BasicLayouts/BasicLayout.scss";
+
+//Pages
+@import "../pages/account.scss";
+@import "../pages/wishlist.scss";
+@import "../pages/search.scss";
+@import "../pages/cart.scss";
+@import "../pages/orders.scss"; */
+//bootstrap INSTALAR BOOTSTRAP Y REACT-BOOSTRARP PRO SEPARADO CON SUS RESPECTIVOS TYPES
+
+@import "bootstrap/scss/bootstrap";
+
+//App.tsx
+@import "../App.scss"  
+
+
+  
+  
