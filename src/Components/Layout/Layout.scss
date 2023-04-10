@@ -1,0 +1,34 @@
+.layoutdinamic {
+    .layoutdinamic_title {
+        margin-top: 2.5rem;
+        margin-bottom: 2.5rem;
+        font-size: 3rem;
+        line-height: 1;
+        text-align: center;
+
+        .layoutdinamic_title_twospan {
+
+            background-clip: text;
+            color: transparent;
+            font-weight: 700;
+            color: #EC5990;
+        }
+
+    }
+    .layoutdinamic_main {
+        display: block;
+        padding-left: 12.25rem;
+        padding-right: 12.25rem;
+        margin-bottom: 2.5rem;
+        justify-items: center;
+        place-items: start;
+        /* grid-template-columns: repeat(1, minmax(0, 1fr)); */
+        gap: 2.5rem;
+
+        @media (min-width: 640px) {
+            margin-bottom: 0;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+    }
+}

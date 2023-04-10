@@ -1,6 +1,7 @@
 import React, { FC, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { Task, User } from "../../interface";
+import { Link } from "react-router-dom";
 
 interface Props {
   //Si se requiere el [] para que identifique es que es un array
@@ -40,9 +41,11 @@ export const TableRender: FC<Props> = ({ data }: Props) => {
                   <Button variant="primary" className="mx-2">
                     Visualizar
                   </Button>
-                  <Button className="mx-2" variant="light">
-                    Editar
-                  </Button>
+                  <Link to={`/edit/${tarea.id}`}>
+                    <Button className="mx-2" variant="light">
+                      Editar
+                    </Button>
+                  </Link>
                   <Button
                     onClick={() => getDeleteUserArr(tarea.name)}
                     className="mx-2"

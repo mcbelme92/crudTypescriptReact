@@ -15,7 +15,14 @@
 @import "bootstrap/scss/bootstrap";
 
 //App.tsx
-@import "../App.scss"  
+@import "../App.scss";  
+@import "../Components/NavBar/NavBar.scss";
+//FormLayout
+@import "../Components/Layout/FormLayout/FormLayout.scss";
+//FormLayout_CustomInput
+@import "../Components/Layout/FormLayout/CustomInput/CustomInput.scss";
+//Layout
+@import "../Components/Layout/Layout.scss";
 
 
   
