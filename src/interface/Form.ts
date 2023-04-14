@@ -1,35 +1,7 @@
-export type FormSection = "register" | "another" | "edit";
-export interface InputProps {
-  type: "text" | "radio" | "email" | "password" | "select" | "checkbox";
-  name: string;
-  value: string | number | boolean;
-  placeholder?: string;
-  label?: string;
-
-  typeValue?: "boolean" | "number";
-  validations?: Validation[];
-  options?: Opt[];
+export interface SignUpFormType {
+  id?: number;
+  name?: string;
+  age?: number;
+  color?: string;
+  address?: string;
 }
-
-export interface Opt {
-  value: string | number;
-  desc: string;
-}
-
-export interface Validation {
-  type: "required" | "isEmail" | "minLength" | "isTrue" | "oneOf";
-  value?: string | number | boolean;
-  message: string;
-  ref?: string;
-}
-
-/* export type SchemaForm = OptionalObjectSchema<{
-    [x: string]: any;
-}, AnyObject, TypeOfShape<{
-    [x: string]: any;
-}>> */
-
-export type CustomInputProps = Omit<
-  InputProps,
-  "validations" | "typeValue" | "value"
->;

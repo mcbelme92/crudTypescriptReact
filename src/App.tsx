@@ -1,7 +1,7 @@
 import { AddTask, EditTask, IndexTable } from "./Components/Table";
-import "../src/scss/index.scss";
 import { taskData } from "./data";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "../src/scss/index.scss";
 
 function App() {
   return (
@@ -9,7 +9,7 @@ function App() {
       <h2>Crud Task + Typescript</h2>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<IndexTable taskData={taskData} />} />
+          <Route path="/" element={<IndexTable />} />
           <Route path="/add" element={<AddTask />} />
           <Route path="/edit/:id" element={<EditTask />} />
         </Routes>

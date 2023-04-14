@@ -1,12 +1,30 @@
-import { FormSection, InputProps } from "../interface/Form";
+import { FormSection, InputProps } from "../interface/FormDynamic";
 
 export const forms: { [K in FormSection]: InputProps[] } = {
   edit: [
     {
       label: "Nombre",
       type: "text",
-      name: "username",
-      placeholder: "New username",
+      name: "name",
+      placeholder: "Nombre",
+      value: "",
+      validations: [
+        {
+          type: "minLength",
+          value: 3,
+          message: "Min. 3 characters",
+        },
+        {
+          type: "required",
+          message: "Nombre es requerido",
+        },
+      ],
+    },
+    {
+      label: "Direccion",
+      type: "text",
+      name: "address",
+      placeholder: "Direccion",
       value: "",
       validations: [
         {
@@ -23,8 +41,8 @@ export const forms: { [K in FormSection]: InputProps[] } = {
     {
       label: "Edad",
       type: "text",
-      name: "password",
-      placeholder: "New password",
+      name: "age",
+      placeholder: "Edad",
       value: "",
       validations: [
         {
@@ -39,10 +57,10 @@ export const forms: { [K in FormSection]: InputProps[] } = {
       ],
     },
     {
-      label: "Repeat your password",
-      type: "password",
-      name: "repeat_password",
-      placeholder: "Repeat password",
+      label: "color",
+      type: "text",
+      name: "color",
+      placeholder: "color",
       value: "",
       validations: [
         {

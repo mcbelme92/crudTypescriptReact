@@ -1,6 +1,6 @@
 import { Task } from "../interface/Task";
 
-export const taskData: Task[] = [
+export const taskData = [
   { id: 1, name: "Pepe", age: 31, color: "rojo", address: "Ciudad de Mexico" },
   { id: 2, name: "Rodrigo", age: 25, color: "azul", address: "Puebla" },
   {

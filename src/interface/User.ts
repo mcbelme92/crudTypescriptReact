@@ -1,6 +1,11 @@
 export interface User {
   id?: number;
   name: string;
+  age: number;
   color: string;
-  age: number | string;
+  address: string;
+}
+
+export interface ListUsersProps {
+  users: User[];
 }

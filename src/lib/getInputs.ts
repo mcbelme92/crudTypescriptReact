@@ -1,7 +1,7 @@
 /* import * as Yup from "yup"; */
 /* import { AnyObject } from "yup/lib/types"; */
-import { FormSection, InputProps } from "../interface/Form";
-import { forms } from "./form";
+import { FormSection, InputProps } from "../interface/FormDynamic";
+import { forms } from "./formDynamic";
 
 /* type YupBoolean = Yup.BooleanSchema<
   boolean | undefined,

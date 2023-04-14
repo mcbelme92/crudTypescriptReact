@@ -1,101 +1,58 @@
-import React, {
-  ChangeEvent,
-  ChangeEventHandler,
-  EventHandler,
-  FormEvent,
-  HTMLProps,
-  useEffect,
-  useState,
-} from "react";
-import { Button } from "react-bootstrap";
 import { useNavigate, useParams } from "react-router-dom";
 import { FormLayout, Layout } from "../../Layout";
 import { getInputs } from "../../../lib/getInputs";
+import { taskData } from "../../../data";
+import { SignUpFormType } from "../../../interface/Form";
+import { modifyUserApi } from "../../../api/Table";
+import { useApiData } from "../../../hooks";
+import { User } from "../../../interface";
+import { useEffect, useState } from "react";
 
-interface SignUpFormType {
-  name: string;
-  age: number;
-  color: string;
-}
 const signUpForm = getInputs<SignUpFormType>("edit");
 
 export const EditTask = () => {
   let navigate = useNavigate();
-
   const { id } = useParams();
-
-  const [formData, setFormData] = useState({
+  const idDataNumber = Number(id);
+  const [formulario, setformulario] = useState({
+    id: 0,
     name: "",
-    age: "",
+    age: 0,
     color: "",
+    address: "",
   });
+  const { data } = useApiData(formulario);
+  console.log(data);
 
-  const { name, age, color } = formData;
-
-  const onInputChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    console.log(e.target.name);
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
-    let body = { name, age, color };
-    e.preventDefault();
+  const onSubmit2 = async (body: object) => {
+    const paramms = { ...body, id: idDataNumber };
+    const response = await modifyUserApi(paramms);
     navigate("/");
   };
-  const onSubmitSignUp = (data: unknown) => console.log({ singUp: data });
 
-  const onSubmitAnotherForm = (data: unknown) => console.log({ another: data });
+  const dataPerKey = data.find((i) => i?.id === idDataNumber);
+  if (!dataPerKey) return null;
 
   const initialValuesSignUp: SignUpFormType = {
     ...signUpForm.initialValues,
+    id: idDataNumber,
+    name: dataPerKey.name,
+    address: dataPerKey.address,
+    age: dataPerKey.age,
+    color: dataPerKey.color,
   };
+
   return (
     <div>
-      {/*  <Form onSubmit={onSubmit}>
-        <Form.Group className="mb-3" controlId="name">
-          <Form.Label>Nombre </Form.Label>
-          <Form.Control
-            className="form-control"
-            placeholder="Introduce tu nombre"
-            name="name"
-            value={name}
-            onChange={onInputChange}
-            type="name"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="age">
-          <Form.Label>Edad</Form.Label>
-          <Form.Control
-            className="form-control"
-            placeholder="Introduce tu edad"
-            name="age"
-            value={age}
-            onChange={onInputChange}
-            type="age"
-          />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="color">
-          <Form.Label>Color</Form.Label>
-          <Form.Control
-            placeholder="Selecciona tu color"
-            name="color"
-            value={color}
-            onChange={onInputChange}
-            type="text"
-          />
-        </Form.Group>
-
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form> */}
       <Layout>
         <FormLayout
           {...signUpForm}
           initialValues={initialValuesSignUp}
-          titleForm="Sign Up!"
-          onSubmit={onSubmitSignUp}
-          labelButtonSubmit="Create account"
+          titleForm="Edita Informacion del usuario"
+          onSubmit={onSubmit2}
+          labelButtonSubmit="Editar"
+          labelButtonSecondary="volver"
+          linkCustomUrl="/"
         />
       </Layout>
     </div>

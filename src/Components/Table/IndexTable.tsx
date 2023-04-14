@@ -1,20 +1,23 @@
-import { FC } from "react";
-import { Task } from "../../interface";
-import { TableView } from "./TableView";
-import { TableRender } from "./TableRender";
+import { useState } from "react";
+import { TableRender } from "./TableRender/TableRender";
 import { NavBar } from "../NavBar";
-import { AddTask } from "./Form";
-//primero crear los props despues meter la propiedad con lo que se recibira
-interface Props {
-  //Si se requiere el [] para que identifique es que es un array
-  taskData: Task[];
-}
+import { useApiData } from "../../hooks";
 
-export const IndexTable: FC<Props> = ({ taskData }: Props) => {
+export const IndexTable = () => {
+  const [formulario, setFormulario] = useState({
+    id: 0,
+    name: "",
+    age: 0,
+    color: "",
+    address: "",
+  });
+
+  const { data } = useApiData(formulario);
+
   return (
     <div className="container">
       <NavBar />
-      <TableRender data={taskData} />
+      <TableRender users={data} />
     </div>
   );
 };

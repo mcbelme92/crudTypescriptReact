@@ -1,5 +1,5 @@
 import { useFormContext } from "react-hook-form";
-import { CustomInputProps } from "../../../../interface/Form";
+import { CustomInputProps } from "../../../../interface/FormDynamic";
 /* import { ErrorMessage } from '../../components' */
 
 export const CustomInput = ({ name, label, ...props }: CustomInputProps) => {
