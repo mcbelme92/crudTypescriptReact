@@ -22,7 +22,6 @@ export const EditTask = () => {
     address: "",
   });
   const { data } = useApiData(formulario);
-  console.log(data);
 
   const onSubmit2 = async (body: object) => {
     const paramms = { ...body, id: idDataNumber };
@@ -38,7 +37,7 @@ export const EditTask = () => {
     id: idDataNumber,
     name: dataPerKey.name,
     address: dataPerKey.address,
-    age: dataPerKey.age,
+    age: Number(dataPerKey.age),
     color: dataPerKey.color,
   };
 
