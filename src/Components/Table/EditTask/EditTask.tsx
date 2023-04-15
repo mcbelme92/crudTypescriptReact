@@ -1,12 +1,11 @@
+import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FormLayout, Layout } from "../../Layout";
 import { getInputs } from "../../../lib/getInputs";
-import { taskData } from "../../../data";
+
 import { SignUpFormType } from "../../../interface/Form";
 import { modifyUserApi } from "../../../api/Table";
 import { useApiData } from "../../../hooks";
-import { User } from "../../../interface";
-import { useEffect, useState } from "react";
 
 const signUpForm = getInputs<SignUpFormType>("edit");
 

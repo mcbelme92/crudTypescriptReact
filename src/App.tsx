@@ -1,4 +1,9 @@
-import { AddTask, EditTask, IndexTable } from "./Components/Table";
+import {
+  AddTask,
+  EditTask,
+  IndexTable,
+  TableDetails,
+} from "./Components/Table";
 import { taskData } from "./data";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "../src/scss/index.scss";
@@ -12,6 +17,7 @@ function App() {
           <Route path="/" element={<IndexTable />} />
           <Route path="/add" element={<AddTask />} />
           <Route path="/edit/:id" element={<EditTask />} />
+          <Route path="/view/:id" element={<TableDetails />} />
         </Routes>
       </BrowserRouter>
     </div>

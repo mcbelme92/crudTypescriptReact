@@ -1,5 +1,5 @@
-export * from "./TableView";
+export * from "./TableDetails";
 export * from "./IndexTable";
 export * from "./TableRender/TableRender";
-export * from "./Form";
+export * from "./AddTask";
 export * from "./EditTask";

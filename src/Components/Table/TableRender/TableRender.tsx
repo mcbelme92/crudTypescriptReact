@@ -52,9 +52,11 @@ const TableRenderMockup: FC<TableRenderMockupProps> = ({
               <td>{tarea.color} </td>
               <td>{tarea.address} </td>
               <td style={{ textAlign: "center" }}>
-                <Button variant="primary" className="mx-2">
-                  Visualizar
-                </Button>
+                <Link to={`/view/${tarea.id}`}>
+                  <Button variant="primary" className="mx-2">
+                    Visualizar
+                  </Button>
+                </Link>
                 <Link to={`/edit/${tarea.id}`}>
                   <Button className="mx-2" variant="light">
                     Editar
