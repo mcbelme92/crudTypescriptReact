@@ -3,7 +3,6 @@ import { FormProvider, useForm } from "react-hook-form";
 import { CustomInput } from "../FormLayout";
 import { InputProps } from "../../../interface/FormDynamic";
 import { Button, Form } from "react-bootstrap";
-import { FormEvent } from "react";
 import { Link } from "react-router-dom";
 
 interface Props {

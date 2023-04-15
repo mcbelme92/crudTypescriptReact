@@ -2,6 +2,7 @@ import React, { FC, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { Task, User, ListUsersProps } from "../../../interface";
 import { Link } from "react-router-dom";
+import { deleteUserApi } from "../../../api/Table";
 
 interface Props {
   data: any;
@@ -9,26 +10,20 @@ interface Props {
 interface TableRenderMockupProps {
   /* formulario: User[]; */
   users: User[];
-  getDeleteUserArr?: any;
+  deleteUserApi?: any;
 }
 
 export const TableRender: FC<ListUsersProps> = ({ users }) => {
-  //no nesecita otro useSTate ya que llega como array
-  /* console.log(users); */
-  const getDeleteUserArr = (id: number) => {
-    /* setFormulario(formulario.filter((item) => item.id !== id)); */
-  };
-
   return (
     <div className="container">
-      <TableRenderMockup users={users} getDeleteUserArr={getDeleteUserArr} />
+      <TableRenderMockup users={users} deleteUserApi={deleteUserApi} />
     </div>
   );
 };
 
 const TableRenderMockup: FC<TableRenderMockupProps> = ({
   users,
-  getDeleteUserArr,
+  deleteUserApi,
 }) => {
   return (
     <div className="py-0">
@@ -52,18 +47,18 @@ const TableRenderMockup: FC<TableRenderMockupProps> = ({
               <td>{tarea.color} </td>
               <td>{tarea.address} </td>
               <td style={{ textAlign: "center" }}>
-                <Link to={`/view/${tarea.id}`}>
+                <Link to={`/view/${tarea?.id}`}>
                   <Button variant="primary" className="mx-2">
                     Visualizar
                   </Button>
                 </Link>
-                <Link to={`/edit/${tarea.id}`}>
+                <Link to={`/edit/${tarea?.id}`}>
                   <Button className="mx-2" variant="light">
                     Editar
                   </Button>
                 </Link>
                 <Button
-                  onClick={() => getDeleteUserArr(tarea.id)}
+                  onClick={() => deleteUserApi(Number(tarea?.id))}
                   className="mx-2"
                   variant="danger"
                 >
