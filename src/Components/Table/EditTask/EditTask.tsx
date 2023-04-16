@@ -27,7 +27,7 @@ export const EditTask = () => {
     navigate("/");
   };
 
-  const dataPerKey = data.find((i) => i?.id === idDataNumber);
+  const dataPerKey = data?.find((i) => i?.id === idDataNumber);
   if (!dataPerKey) return null;
 
   const initialValuesSignUp: SignUpFormType = {
