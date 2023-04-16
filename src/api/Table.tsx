@@ -46,6 +46,6 @@ export const modifyUserApi = async (body: object) => {
 
 export const deleteUserApi = async (id: number) => {
   const url: string = `${BASE_PATH}/user/${id}`;
-  const response = axios.delete(url);
-  console.log(response);
+  const response = await axios.delete(url);
+  /* console.log(response); */
 };

@@ -11,7 +11,6 @@ export const IndexTable = () => {
     color: "",
     address: "",
   });
-
   const { data } = useApiData(formulario);
 
   return (
