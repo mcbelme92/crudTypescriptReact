@@ -1,4 +1,7 @@
 .layoutdinamic {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr),);
+    gap: 16px;
     .layoutdinamic_title {
         margin-top: 2.5rem;
         margin-bottom: 2.5rem;

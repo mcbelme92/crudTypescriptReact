@@ -14,7 +14,7 @@ export const IndexTable = () => {
   const { data } = useApiData(formulario);
 
   return (
-    <div className="container">
+    <div className="ss">
       <NavBar />
       <TableRender users={data} />
     </div>
