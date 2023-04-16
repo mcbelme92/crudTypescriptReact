@@ -1,16 +1,15 @@
-import React, { FC, MouseEvent, useEffect, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
 import { User, ListUsersProps } from "../../../interface";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { deleteUserApi, getUsersApi } from "../../../api/Table";
-import { useApiData } from "../../../hooks";
 
 interface Props {
   data: any;
 }
 interface TableRenderMockupProps {
   /* formulario: User[]; */
-  users: User[];
+  users: User[] | undefined;
   deleteUserApi?: any;
 }
 
@@ -26,11 +25,11 @@ const TableRenderMockup: FC<TableRenderMockupProps> = ({
   users,
   deleteUserApi,
 }) => {
-  const [dataEfect, setDataEfect] = useState(users);
+  const [dataEfect, setDataEfect] = useState<User[] | undefined>(users);
 
-  const [render, setRender] = useState(false);
+  const [render, setRender] = useState<boolean>(false);
 
-  const deleteUser = async (id: Number) => {
+  const deleteUser = async (id: number): Promise<void> => {
     const response = await deleteUserApi(Number(id));
     setRender(true);
   };
@@ -59,7 +58,7 @@ const TableRenderMockup: FC<TableRenderMockupProps> = ({
           </tr>
         </thead>
         <tbody>
-          {dataEfect.map((tarea) => (
+          {dataEfect?.map((tarea) => (
             <tr key={tarea.id}>
               <td>{tarea.id}</td>
               <td>{tarea.name}</td>

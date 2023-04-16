@@ -1,14 +1,14 @@
-import { useState } from "react";
 import { BASE_PATH } from "../utils/contants";
 import axios from "axios";
+import { User } from "../interface";
 
 export const getUsersApi = async () => {
   //Ya que se pone asi pues con el try catch detecta un retorno de algopor separado
   try {
     const url: string = `${BASE_PATH}/users`;
-    const result = await axios.get(url);
+    const result = await axios.get<User[]>(url);
     return result;
-  } catch (error) {
+  } catch (error: unknown) {
     if (error instanceof Error) {
       console.log(error);
     } else {

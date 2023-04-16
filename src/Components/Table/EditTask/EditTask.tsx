@@ -2,10 +2,9 @@ import { useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { FormLayout, Layout } from "../../Layout";
 import { getInputs } from "../../../lib/getInputs";
-
 import { SignUpFormType } from "../../../interface/Form";
-import { modifyUserApi } from "../../../api/Table";
 import { useApiData } from "../../../hooks";
+import { modifyUserApi } from "../../../api/Table";
 
 const signUpForm = getInputs<SignUpFormType>("edit");
 

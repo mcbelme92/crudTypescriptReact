@@ -7,6 +7,6 @@ export interface User {
 }
 
 export interface ListUsersProps {
-  users: User[];
+  users: User[] | undefined;
   callback?: (id: number) => Promise<void>;
 }

@@ -22,7 +22,7 @@ export const TableDetails = () => {
 
   return (
     <div className="form">
-      {dataPerKey.map((i) => (
+      {dataPerKey?.map((i) => (
         <Card className="text-center">
           <Card.Header>{i.name} </Card.Header>
           <Card.Body>{i.age}</Card.Body>
