@@ -1,22 +1,41 @@
 @import "../../../scss/colors.scss";
 .form {
-    background-color:  $secondary;
-    display: flex;
+    background-color:  $secondary !important;
+    border-color: $primary !important; 
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -2%);
+    
+    /*
+    This doesn't work
+    margin-left: -25%;
+    margin-top: -25%;
+    */
+    
+    width: auto;
+    height: auto;
+  
+    padding: 20px;  
+    background: red;
+    color: $secondary;
+    text-align: center;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+
+  
+    
+  
+    /* display: flex;
     padding: 2.5rem;
-    padding-top: 1.25rem;
+    padding-top: 1.25rem; 
     flex-direction: column;
     width: 100%;
     border-radius: 0.375rem;
     border-width: 1px;
     gap: 0.5rem;
     box-shadow: 0 25px 50px -12px rgba(179, 16, 201, 0.25);
-    border-color: $primary;
-    display: flex; 
-
-
-
-
-    
+    */
+     
 
     .form_title {
         padding-bottom: 0.5rem;
@@ -36,6 +55,7 @@
         flex-direction: column;
         flex: 1 1 0%;
         gap: 0.75rem;
+        
 
     }
 

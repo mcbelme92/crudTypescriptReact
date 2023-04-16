@@ -21,17 +21,19 @@ export const TableDetails = () => {
   const dataPerKey = data?.filter((i) => i?.id === idDataNumber);
 
   return (
-    <div className="form">
-      {dataPerKey?.map((i) => (
-        <Card className="text-center">
-          <Card.Header>{i.name} </Card.Header>
-          <Card.Body>{i.age}</Card.Body>
-          <Card.Footer className="text-center">{i.color}</Card.Footer>
-          <Link to={"/"}>
-            <Button variant="primary">Volver </Button>
-          </Link>
-        </Card>
-      ))}
+    <div className="container">
+      <div className="form">
+        {dataPerKey?.map((i) => (
+          <Card className="text-center" key={i.id}>
+            <Card.Header>{i.name} </Card.Header>
+            <Card.Body>{i.age}</Card.Body>
+            <Card.Footer className="text-center">{i.color}</Card.Footer>
+            <Link to={"/"}>
+              <Button variant="primary">Volver </Button>
+            </Link>
+          </Card>
+        ))}
+      </div>
     </div>
   );
 };

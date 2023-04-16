@@ -1,17 +1,14 @@
 import { FC, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
-import { User, ListUsersProps } from "../../../interface";
+import {
+  User,
+  ListUsersProps,
+  TableRenderMockupProps,
+  TableItem,
+  headLineaArray,
+} from "../../../interface";
 import { Link } from "react-router-dom";
 import { deleteUserApi, getUsersApi } from "../../../api/Table";
-
-interface Props {
-  data: any;
-}
-interface TableRenderMockupProps {
-  /* formulario: User[]; */
-  users: User[] | undefined;
-  deleteUserApi?: any;
-}
 
 export const TableRender: FC<ListUsersProps> = ({ users }) => {
   return (
@@ -44,50 +41,53 @@ const TableRenderMockup: FC<TableRenderMockupProps> = ({
     setRender(false);
   }, [render]);
 
+  headLineaArray[5]["class"] = "mi-clase-personalizada";
+
   return (
-    <div className="py-0">
-      <Table striped bordered hover variant="dark">
-        <thead>
-          <tr>
-            <th>id</th>
-            <th>Nombre</th>
-            <th>Edad</th>
-            <th>Color</th>
-            <th>Direccion</th>
-            <th style={{ textAlign: "center" }}>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          {dataEfect?.map((tarea) => (
-            <tr key={tarea.id}>
-              <td>{tarea.id}</td>
-              <td>{tarea.name}</td>
-              <td>{tarea.age}</td>
-              <td>{tarea.color} </td>
-              <td>{tarea.address} </td>
-              <td style={{ textAlign: "center" }}>
-                <Link to={`/view/${tarea?.id}`}>
-                  <Button variant="primary" className="mx-2">
-                    Visualizar
-                  </Button>
-                </Link>
-                <Link to={`/edit/${tarea?.id}`}>
-                  <Button className="mx-2" variant="light">
-                    Editar
-                  </Button>
-                </Link>
-                <Button
-                  onClick={() => deleteUser(Number(tarea?.id))}
-                  className="mx-2"
-                  variant="danger"
-                >
-                  Eliminar
-                </Button>
-              </td>
+    <div className="container">
+      <div className="py-0">
+        <Table responsive striped bordered hover variant="dark">
+          <thead>
+            <tr>
+              {headLineaArray.map((item, index) => (
+                <th key={item.id} className="mi-clase-personalizada">
+                  {item.table_line}
+                </th>
+              ))}
             </tr>
-          ))}
-        </tbody>
-      </Table>
+            {dataEfect?.map((item, index) => (
+              <tr key={item?.id}>
+                <th>{item?.id} </th>
+                <th>{item?.name} </th>
+                <th>{item?.age} </th>
+                <th>{item?.color} </th>
+                <th>{item?.address} </th>
+                <td style={{ textAlign: "center" }}>
+                  <div className="gap-1">
+                    <Link to={`/view/${item?.id}`}>
+                      <Button variant="primary" className="mx-1">
+                        Visualizar
+                      </Button>
+                    </Link>
+                    <Link to={`/edit/${item?.id}`}>
+                      <Button className="mx-1" variant="light">
+                        Editar
+                      </Button>
+                    </Link>
+                    <Button
+                      className="mx-1"
+                      variant="danger"
+                      onClick={() => deleteUser(Number(item?.id))}
+                    >
+                      Eliminar
+                    </Button>
+                  </div>
+                </td>
+              </tr>
+            ))}
+          </thead>
+        </Table>
+      </div>
     </div>
   );
 };

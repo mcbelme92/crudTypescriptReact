@@ -1,8 +1,11 @@
 .container{
-
-    .nav{
-        background-color: black;
-        padding-left: 90%; 
-        /* text-align: start; */
+    .row{
+        display: contents;
+        .nav{
+            background-color: black;
+            padding-left: 90%;
+            
+            /* text-align: start; */
+        }
     }
 }

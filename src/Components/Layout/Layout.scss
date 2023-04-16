@@ -1,7 +1,7 @@
 .layoutdinamic {
-    display: grid;
+    /* display: grid;
     grid-template-columns: repeat(auto-fit, minmax(150px, 1fr),);
-    gap: 16px;
+    gap: 16px; */
     .layoutdinamic_title {
         margin-top: 2.5rem;
         margin-bottom: 2.5rem;
@@ -20,8 +20,8 @@
     }
     .layoutdinamic_main {
         display: block;
-        padding-left: 12.25rem;
-        padding-right: 12.25rem;
+        /* padding-left: 12.25rem;
+        padding-right: 12.25rem; */
         margin-bottom: 2.5rem;
         justify-items: center;
         place-items: start;

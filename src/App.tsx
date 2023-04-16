@@ -11,7 +11,9 @@ import "../src/scss/index.scss";
 function App() {
   return (
     <div className="App">
-      <h2>Crud Task + Typescript</h2>
+      <>
+        <h2>Crud Task + Typescript</h2>
+      </>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<IndexTable />} />

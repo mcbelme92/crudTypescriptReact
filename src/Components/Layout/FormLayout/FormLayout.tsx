@@ -46,33 +46,34 @@ export const FormLayout = ({ ...props }: Props) => {
 
   return (
     <FormProvider {...formMethods}>
-      <Form onSubmit={formMethods.handleSubmit(onSubmit)} className="form">
-        {titleForm && <h5 className="form_title">{titleForm}</h5>}
+      <div className="container">
+        <Form onSubmit={formMethods.handleSubmit(onSubmit)} className="form">
+          {titleForm && <h5 className="form_title">{titleForm}</h5>}
+          <section className="form_section_inputs">{createInputs()}</section>
 
-        <section className="form_section_inputs">{createInputs()}</section>
-
-        {labelButtonSubmit && (
-          <Button
-            variant="primary"
-            className="form_submit_button"
-            type="submit"
-          >
-            {labelButtonSubmit}
-          </Button>
-        )}
-
-        {labelButtonSecondary && (
-          <Link to={linkCustomUrl}>
+          {labelButtonSubmit && (
             <Button
               variant="primary"
               className="form_submit_button"
               type="submit"
             >
-              {labelButtonSecondary}
+              {labelButtonSubmit}
             </Button>
-          </Link>
-        )}
-      </Form>
+          )}
+
+          {labelButtonSecondary && (
+            <Link to={linkCustomUrl}>
+              <Button
+                variant="primary"
+                className="form_submit_button"
+                type="submit"
+              >
+                {labelButtonSecondary}
+              </Button>
+            </Link>
+          )}
+        </Form>
+      </div>
     </FormProvider>
   );
 };
