@@ -1,14 +1,13 @@
-import { FC, useEffect, useState } from "react";
 import { Button, Table } from "react-bootstrap";
+import { FC, useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import { deleteUserApi, getUsersApi } from "../../../api/Table";
 import {
   User,
   ListUsersProps,
   TableRenderMockupProps,
-  TableItem,
   headLineaArray,
 } from "../../../interface";
-import { Link } from "react-router-dom";
-import { deleteUserApi, getUsersApi } from "../../../api/Table";
 
 export const TableRender: FC<ListUsersProps> = ({ users }) => {
   return (
